@@ -16,7 +16,7 @@ export const Drink = (props) => {
                 
             </div>
         </div>
-            <div class="drink__controls">
+        <div class="drink__controls">
             <button class="order-btn">
                 Objednat
             </button>
@@ -24,9 +24,11 @@ export const Drink = (props) => {
         </div>
     `
     const layersElement = element.querySelector('.drink__info')
-    layersElement.append(Layer({
-        color: '#feeeca',
-        label: 'mléčná pěna',
-    }))
+    layersElement.append(...layers.map((item) => Layer({
+        color: item.color,
+        label: item.label
+    })))
+
+    layersElement.append(document.createElement('div'))
     return element
 }
